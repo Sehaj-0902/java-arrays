@@ -56,7 +56,6 @@ public class EvenOddArrays {
 		for (int i = 0; i < oddIndex; i++) {
                         System.out.print(oddArray[i] + " ");
                 }
-
 	}
 }
 
