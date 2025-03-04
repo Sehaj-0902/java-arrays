@@ -62,7 +62,7 @@ public class EmployeeBonus {
                         }
                 }
 
-		//
+		// Calculate bonus, new salary
 		for (int i = 0; i < 10; i++) {
 			double bonusPercent = (yearsOfService[i] > 5) ? 0.05 : 0.02;
             		bonus[i] = salary[i] * bonusPercent;
@@ -72,10 +72,17 @@ public class EmployeeBonus {
             		totalOldSalary += salary[i];
             		totalNewSalary += newSalary[i];
 		}
+		
+		// Print Old salary, bonus and New salary of each employee
+		System.out.println("\nEmployee Salary and Bonus:");
+        	for (int i = 0; i < 10; i++) {
+            		System.out.println("Employee " + (i + 1) + ": Old Salary = " + salary[i] + ", Bonus = " + bonus[i] + ", New Salary = " + newSalary[i]);
+        	}
 
-		// Print reults
-		System.out.println("\nTotal Bonus Amount: %.2f%n" + totalBonus);
-        	System.out.println("Total Old Salary: %.2f%n" + totalOldSalary);
-        	System.out.println("Total New Salary: %.2f%n" + totalNewSalary);
+
+		// Print total bonus amount, total old salary, total new salary
+		System.out.println("\nTotal Bonus Amount: " + (String.format("%.2f", totalBonus)));
+        	System.out.println("Total Old Salary: " + (String.format("%.2f", totalOldSalary)));
+        	System.out.println("Total New Salary: " + (String.format("%.2f", totalNewSalary)));
     	}
 }
