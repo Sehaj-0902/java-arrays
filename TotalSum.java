@@ -23,7 +23,9 @@ public class TotalSum {
 			System.out.println("Enter a number (0 or negative number to stop): ");
             		double number = sc.nextDouble();
 
-			if (number <= 0 || number >= 10) {
+			// Break from the loop if user enters 0 or negative number
+			// Or if the value of number is 10
+			if (number <= 0 || number == 10) {
 				break;
 			}
 
