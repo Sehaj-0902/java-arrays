@@ -12,31 +12,60 @@ public class StudentGrades {
         	int numberOfStudents = sc.nextInt();
 
         	// Define arrays to store marks, percentages, and grades of the students
-        	double[][] marks = new double[numberOfStudents][3]; 
+		double[] physicsMarks = new double[numberOfStudents];
+        	double[] chemistryMarks = new double[numberOfStudents];
+        	double[] mathsMarks = new double[numberOfStudents];
         	double[] percentages = new double[numberOfStudents];
         	String[] grades = new String[numberOfStudents];
 
-        	// Take input for marks of students in physics, chemistry, and maths
-        	for (int i = 0; i < numberOfStudents; i++) {
-            		for (int j = 0; j < 3; j++) {
-                		while (true) {
-                    			String subject = (j == 0) ? "Physics" : (j == 1) ? "Chemistry" : "Maths";
-                    			System.out.print("Enter marks for " + subject + " for student " + (i + 1) + ": ");
-                    			double mark = sc.nextDouble();
-                    			if (mark >= 0) {
-                        			marks[i][j] = mark;
-                        			break;
-                    			}
-					else {
-                        			System.out.println("Marks must be non-negative.");
-                    			}
+        	// Take input for marks of students in physics
+	        for (int i = 0; i < numberOfStudents; i++) {
+            		while (true) {
+                		System.out.print("Enter marks for Physics for student " + (i + 1) + ": ");
+                		double mark = sc.nextDouble();
+                		if (mark >= 0) {
+                    			physicsMarks[i] = mark;
+                    			break;
+                		}
+				else {
+                    			System.out.println("Marks must be non-negative.");
                 		}
             		}
-        	}
+		}
+
+		// Take input for marks of students in chemistry
+                for (int i = 0; i < numberOfStudents; i++) {
+                        while (true) {
+                                System.out.print("Enter marks for Chemistry for student " + (i + 1) + ": ");
+                                double mark = sc.nextDouble();
+                                if (mark >= 0) {
+                                        chemistryMarks[i] = mark;
+                                        break;
+                                }
+                                else {
+                                        System.out.println("Marks must be non-negative.");
+                                }
+                        }
+                }
+
+		// Take input for marks of students in maths
+                for (int i = 0; i < numberOfStudents; i++) {
+                        while (true) {
+                                System.out.print("Enter marks for Maths for student " + (i + 1) + ": ");
+                                double mark = sc.nextDouble();
+                                if (mark >= 0) {
+                                        mathsMarks[i] = mark;
+                                        break;
+                                }
+                                else {
+                                        System.out.println("Marks must be non-negative.");
+                                }
+                        }
+                }
 
         	// Calculate the percentage and grade of the students based on the percentage
         	for (int i = 0; i < numberOfStudents; i++) {
-            		double totalMarks = marks[i][0] + marks[i][1] + marks[i][2];
+            		double totalMarks = physicsMarks[i] + chemistryMarks[i] + mathsMarks[i];
             		percentages[i] = (totalMarks / 300) * 100;
 
             		if (percentages[i] >= 80) {
@@ -62,8 +91,8 @@ public class StudentGrades {
         	// Print the marks, percentages, and grades of each student
         	System.out.println("\nStudent Results:");
         	for (int i = 0; i < numberOfStudents; i++) {
-         		System.out.println("Student " + (i + 1) + ": Physics=" + marks[i][0] + ", Chemistry=" + marks[i][1] + ", Maths=" + marks[i][2]);
-			System.out.println("  Percentage=" + String.format("%.2f", percentages[i]) + "%, Grade=" + grades[i]);
+         		System.out.println("Student " + (i + 1) + ": Physics = " + physicsMarks[i] + ", Chemistry = " + chemistryMarks[i] + ", Maths = " + mathsMarks[i]);
+			System.out.println("Percentage = " + String.format("%.2f", percentages[i]) + "%, Grade = " + grades[i]);
         	}
     	}
 }
